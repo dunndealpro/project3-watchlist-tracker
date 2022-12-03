@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/shows">MyShows</Link>
       &nbsp; | &nbsp;
-      <Link to="/Actors">MyActors</Link>
+      <Link to="/actors">MyActors</Link>
       &nbsp; | &nbsp;
       <Link to="/watch">MyWatch</Link>
       &nbsp; | &nbsp;
