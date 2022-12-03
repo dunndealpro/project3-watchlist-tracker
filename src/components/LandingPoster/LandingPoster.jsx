@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import "./LandingPoster.css";
 
 export default function LandingPoster() {
 
@@ -9,6 +10,7 @@ export default function LandingPoster() {
 
     useEffect(() => {
         getLandingPoster()
+        
     }, [])
 
     const getLandingPoster = async () => {
@@ -16,15 +18,26 @@ export default function LandingPoster() {
             const response = await fetch(url);
             const data = await response.json();
             setLandingPoster(data)
-            console.log("poster working? ", typeof landingPoster)
-        } catch (error) {
-            console.log("Error! ", error)
+            console.log("poster working? ", landingPoster)
+            console.log(landingPoster.results[1]) 
+        } catch (error) { 
+            console.log("Error! ", error) 
         }
     }
 
+    // const photoUrl1 = `https://image.tmdb.org/t/p/original/${landingPoster.results[0].poster_path}`
+    // const photoUrl2 = `https://image.tmdb.org/t/p/original/${landingPoster.results[1].poster_path}`
+    // const photoUrl3 = `https://image.tmdb.org/t/p/original/${landingPoster.results[2].poster_path}`
+    // const photoUrl4 = `https://image.tmdb.org/t/p/original/${landingPoster.results[3].poster_path}`
+
+    // console.log(landingPoster[0]) 
     return (
-        <div>
-            <img src="https://www.penbaypilot.com/sites/default/files/2020/03/field/image/MaineMovies200+previewsm.png" alt="" />
+        <div className="landing-poster"> 
+        <h3>Trending this week</h3>
+            {/* <img src={photoUrl1} alt="" />
+            <img src={photoUrl2} alt="" />
+            <img src={photoUrl3} alt="" />
+            <img src={photoUrl4} alt="" /> */}
         </div>
     )
 }

@@ -8,6 +8,9 @@ import MyMoviesPage from '../MyMoviesPage/MyMoviesPage';
 import MyShowsPage from '../MyShowsPage/MyShowsPage';
 import MyActorsPage from '../MyActorsPage/MyActorsPage';
 import MyWatchPage from '../MyWatchPage/MyWatchPage';
+import SearchMoviesPage from '../SearchMoviesPage/SearchMoviesPage';
+import SearchShowsPage from '../SearchShowsPage/SearchShowsPage';
+import SearchActorsPage from '../SearchActorsPage/SearchActorsPage';
 
 import './App.css';
 
@@ -17,7 +20,7 @@ export default function App() {
 
   return (
     <main className="App">
-      Evan's Movie Tracker
+      MyWatch
       {user
         ?
         <>
@@ -28,6 +31,9 @@ export default function App() {
           <Route path="/shows" element ={<MyShowsPage  />}/>
           <Route path="/actors" element ={<MyActorsPage  />}/>
           <Route path="/watch" element ={<MyWatchPage  />}/>
+          <Route path="/search/movies" element ={<SearchMoviesPage  />}/>
+          <Route path="/search/shows" element ={<SearchShowsPage  />}/>
+          <Route path="/search/actors" element ={<SearchActorsPage  />}/>
         </Routes>
         </>
         :
