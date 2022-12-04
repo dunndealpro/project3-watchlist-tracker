@@ -14,10 +14,7 @@ export default function SearchMoviesPage() {
             const response = await fetch(url);
             const data = await response.json()
             setMovies(data);
-            console.log(data)
-            // console.log(typeof movies.results)
-            // // console.log("Working? ", movies.results)
-            // console.log(typeof data.results)
+            console.log(data)           
         } catch (error) {
             console.log("Error!!>!>!")
             console.error(error);
