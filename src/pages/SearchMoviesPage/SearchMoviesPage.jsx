@@ -10,12 +10,14 @@ export default function SearchMoviesPage() {
     const [movies, setMovies] = useState({});
     const [search, setSearch] = useState('');
     const [selectedMovie, setSelectedMovie] = useState({})
+    const [selectedDisplay, setSelectedDisplay] = useState({})
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
     const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
 
     const getMovies = async () => { 
+
         try {
             console.log("Search: ", search)
             const response = await fetch(url);
@@ -29,22 +31,36 @@ export default function SearchMoviesPage() {
     }
 
     // useEffect(() => {
-    //     getMovies();
+        // getMovies();
+    // handleSelectMovie()
     //   }, []);
 
     const onChangeHandler = e => {
         setSearch(e.target.value);
     }
 
-    const handleSelectMovie =async (e) => {
-
+    const handleSelectMovie = async (e) => {
+        const movieSelect = e
+        setSelectedMovie(movieSelect)
         console.log("Test")
         console.log(e)
-        const movieSelect = await e
-        setSelectedMovie(movieSelect)
         console.log(selectedMovie)
+
+        try {
+            const response = await fetch(selectedUrl);
+            const data = await response.json();
+            setSelectedDisplay(data);
+            console.log(data)
+            console.log(selectedDisplay)
+        }catch(error){
+            console.log("Error!!>!>!")
+            console.error(error);
+        }
     }
     
+    const handleAddToMyMovies = function (movieId){
+        console.log(movieId)
+    }
    
         // selectedMovieId = 
         // setSelectedMovie(selectedMovieId)
@@ -57,7 +73,7 @@ export default function SearchMoviesPage() {
             <button type="submit" onClick={getMovies}>Search</button>
             <div className = "search-movies-main">
             <SearchResults movies={movies} handleSelectMovie={handleSelectMovie}/>
-            <SelectedMovieDetails selectedMovie={selectedMovie}/>
+            <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/>
             <MyWatchList/>
             </div>
         </div>
