@@ -1,12 +1,18 @@
 import MovieListItem from "../MovieListItem/MovieListItem"
 
-export default function SearchResults({ movies }) {
+
+export default function SearchResults({ movies, handleSelectMovie }) {
+
+
     if ({ movies }.results) {
         console.log("Test: ", movies.results[0].title)
         function moviesTest() {
             console.log("Test: ", movies.results[0].title)
         }
     }
+
+
+  
 
     // moviesTest()
 
@@ -15,8 +21,25 @@ export default function SearchResults({ movies }) {
     // console.log("Results: ", movies.results[0].title)
     return (
         <div>
-            Search Results<br></br>
-            <MovieListItem movies={movies} />
+            Search Results
+            <div>
+            {movies.results ?                
+                <div> 
+                    <ul>
+                        {movies.results.map((movie) => ( 
+                            <MovieListItem 
+                            key={movie.title} 
+                            movie={movie} 
+                            handleSelectMovie={handleSelectMovie}
+                            />
+                        ))}
+                    </ul>
+                </div>           
+                :
+                <p> Please Enter a movie in the search box</p>
+            }
+            </div>
+            
         </div>
     )
 }

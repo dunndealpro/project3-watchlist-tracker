@@ -1,21 +1,28 @@
 import "./MovieListItem.css"
-export default function MovieListItem({ movies }) {
-    console.log("huh? ")
+export default function MovieListItem({ movie, handleSelectMovie }) {
+    // console.log("huh? ")
 
     let movieTitle
     let posterUrl
 
-    if (movies.results) {
-        console.log(movies.results[0].title)
-        movieTitle = movies.results[0].title
+    const clickTest = e => {
 
-        posterUrl = `https://image.tmdb.org/t/p/original/${movies.results[0].poster_path}`
+        // console.log("Test ", movie.id)
+    }
+
+    if (movie) {
+        // console.log(movie.title)
+        movieTitle = movie.title
+
+        posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
     } else { movieTitle = "False" }
 
     return (
         <div className="search-results-poster">
-            <h3>{movieTitle}</h3>
-            <img src={posterUrl} alt="" />
+            <button onClick={() => handleSelectMovie(movie.id)}> {movieTitle}
+                <br />
+                {movie.id}
+                <img src={posterUrl} alt="" /></button>
         </div>
 
     )

@@ -7,7 +7,7 @@ export default function LandingPoster() {
     const [landingPoster, setLandingPoster] = useState()
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
-    const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`
+    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
     let photoUrl1
     let photoUrl2
     let photoUrl3
@@ -33,7 +33,7 @@ export default function LandingPoster() {
         }
     }
 
-    
+
 if (landingPoster){
     photoUrl1 = `https://image.tmdb.org/t/p/original/${landingPoster.results[0].poster_path}`
     photoUrl2 = `https://image.tmdb.org/t/p/original/${landingPoster.results[1].poster_path}`

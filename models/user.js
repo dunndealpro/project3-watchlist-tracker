@@ -18,7 +18,10 @@ const userSchema = new Schema({
     trim: true,
     minlength: 3,
     required: true
-  }
+  },
+  myMovies: [{type: Schema.Types.ObjectId, ref: 'movieId'}],
+  myShows: [{type: Schema.Types.ObjectId, ref: 'showId'}],
+  myActors: [{type: Schema.Types.ObjectId, ref: 'ActorId'}],
 }, {
   timestamps: true,
   toJSON: {
