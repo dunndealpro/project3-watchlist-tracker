@@ -4,6 +4,7 @@ import MyWatchList from "../../components/MyWatchList/MyWatchList";
 import SelectedMovieDetails from "../../components/SelecetedMovieDetails/SelectedMovieDetails";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import "./SearchMoviesPage.css"
+import * as moviesAPI from "../../utilities/movies-api"
 
 
 export default function SearchMoviesPage() {
@@ -16,14 +17,14 @@ export default function SearchMoviesPage() {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
     const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
 
-    const getMovies = async () => { 
+    const getMovies = async () => {  
 
         try {
             console.log("Search: ", search)
             const response = await fetch(url);
             const data = await response.json()
             setMovies(data);
-            console.log(data)           
+            console.log(movies)           
         } catch (error) {
             console.log("Error!!>!>!")
             console.error(error);
@@ -39,7 +40,7 @@ export default function SearchMoviesPage() {
         setSearch(e.target.value);
     }
 
-    const handleSelectMovie = async (e) => {
+    const handleSelectMovie = async e => {
         const movieSelect = e
         setSelectedMovie(movieSelect)
         console.log("Test")
@@ -58,8 +59,9 @@ export default function SearchMoviesPage() {
         }
     }
     
-    const handleAddToMyMovies = function (movieId){
-        console.log(movieId)
+    async function handleAddToMyMovies(movieId, movieTitle, check){
+        console.log("Add to my movies ", movieId,movieTitle,check)
+        const movie = await moviesAPI.addMovieToMyMovies(movieId, movieTitle, check)
     }
    
         // selectedMovieId = 

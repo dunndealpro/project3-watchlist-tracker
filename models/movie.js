@@ -4,17 +4,31 @@ const Schema = mongoose.Schema;
 const movieSchema = new Schema({
     title: {
         type: String,
-        required: true
+        // required: true
     },
     movieDbId: {
         type: Number,
-        required: true
-    }
+        // required: true
+    },
     haveSeen: {
-        type: Boolean,
-        required: true,
-    },{
+        type: Boolean, 
+        // required: true,
+    },
+},{
         timestamps: true
-    })
+    });
     
-module.exports=movieSchema
+
+movieSchema.statics.getMovies = function(movieId, movieTitle, check){
+    // console.log("yep dirp"),
+    return this.findOneAndUpdate(
+        {movieDbId: movieId},
+        {movieDbId: movieId, title: movieTitle, haveSeen: check},
+        {upsert: true, new:true},
+
+        
+    )
+    
+}
+    
+module.exports=mongoose.model('Movie', movieSchema) 
