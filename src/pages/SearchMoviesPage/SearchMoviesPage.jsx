@@ -5,6 +5,7 @@ import SelectedMovieDetails from "../../components/SelectedMovieDetails/Selected
 import SearchResults from "../../components/SearchResults/SearchResults";
 import "./SearchMoviesPage.css"
 import * as moviesAPI from "../../utilities/movies-api"
+import * as usersAPI from "../../utilities/users-api"
 import NextWatchMovies from "../../components/NextWatchMovies/NextWatchMovies";
 
 
@@ -65,7 +66,9 @@ export default function SearchMoviesPage() {
     async function handleAddToMyMovies(movieId, movieTitle, check){
         console.log("Add to my movies ", movieId,movieTitle,check)
         const movie = await moviesAPI.addMovieToMyMovies(movieId, movieTitle, check)
+        const myMovie = await usersAPI.addToMyMovies(movieId)
         console.log(movie)
+        console.log("User Model My Movies?", myMovie)
     }
 
     // async function getNonSeenMovies(){

@@ -14,4 +14,6 @@ router.post('/', usersCtrl.create);
 // POST /api/users/login
 router.post('/login', usersCtrl.login);
 
+router.post('/movies', usersCtrl.addToMyMovies)
+
 module.exports = router;

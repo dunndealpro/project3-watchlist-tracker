@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
+const Movie = require('../../models/movie');
 
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  addToMyMovies
 };
 
 function checkToken(req, res) {
@@ -46,4 +48,23 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
+}
+
+async function addToMyMovies(req, res){
+  console.log("Add movie to user models", req.user._id)
+  let user = await User.findById( req.user._id)
+  let movie = await Movie.findOne({id: req.body.movieId})
+  
+  user.myMovies.push(movie._id)
+  console.log(movie)
+  user.save()
+  console.log(user)
+  console.log(movie._id)
+  // User.myMovies.push(movieId)
+
+
+  // console.log("Req.user: ", req.user.myMovies)
+// console.log('suer variable', user)
+// res.json(user)
+// console.log(res.json(user))
 }

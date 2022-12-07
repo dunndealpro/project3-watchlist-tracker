@@ -15,3 +15,9 @@ export function login(credentials) {
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
+
+export function addToMyMovies(movieId, movieTitle, check){
+  console.log('add to user model step 2 ', movieId)
+  
+  return sendRequest(`${BASE_URL}/movies/`, 'POST',{ movieId})
+}

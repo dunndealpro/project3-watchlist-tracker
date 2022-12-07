@@ -9,6 +9,7 @@ export function addMovieToMyMovies(movieId, movieTitle, check){
     
     return sendRequest(`${BASE_URL}/mymovies/${movieId}`, 'POST', {title: movieTitle, haveSeen: check })
 }
+
 export function getAlreadyWatchedMovies(){
     console.log("Already Watch step 2")
     return sendRequest(`${BASE_URL}/movies/`, 'GET',  )

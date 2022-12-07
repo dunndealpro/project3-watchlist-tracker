@@ -19,7 +19,7 @@ const userSchema = new Schema({
     minlength: 3,
     required: true
   },
-  myMovies: [{type: Schema.Types.ObjectId, ref: 'movieId'}],
+  myMovies: [{type: Schema.Types.ObjectId, ref: 'Movie'}],
   myShows: [{type: Schema.Types.ObjectId, ref: 'showId'}],
   myActors: [{type: Schema.Types.ObjectId, ref: 'ActorId'}],
 }, {
