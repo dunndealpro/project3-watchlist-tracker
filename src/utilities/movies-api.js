@@ -14,3 +14,8 @@ export function getNonSeenMovies(){
     console.log("Nonseen step 2")
     return sendRequest(`${BASE_URL}/movies/`, 'GET',  )
 }
+
+export function getMyMovies(){
+    console.log("My Movies stuff")
+    return sendRequest(`${BASE_URL}/movies/`, 'GET',  )
+}
