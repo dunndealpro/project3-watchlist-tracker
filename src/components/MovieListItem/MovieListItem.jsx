@@ -22,10 +22,8 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
     return (
         <div className="search-results-poster">
             <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
-                <br />
-                
-                <br />
-                hi there
+                <br />              
+              
                 <img src={posterUrl} alt="" /></button>
         </div>
 

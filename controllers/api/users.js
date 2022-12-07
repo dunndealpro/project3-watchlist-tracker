@@ -50,10 +50,13 @@ function createJWT(user) {
   );
 }
 
-async function addToMyMovies(req, res){
+async function addToMyMovies(req, res){ 
   console.log("Add movie to user models", req.user._id)
-  let user =  User.findById( req.user._id)
+  let user =  await User.findOne({id: req.user._id})
   let movie = await Movie.findOne({id: req.body.movieId})
+  console.log("user: ",user)
+  console.log("movie: ", movie)
+
   
   user.myMovies.push(movie._id)
   console.log(movie)
