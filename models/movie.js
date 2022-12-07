@@ -6,7 +6,7 @@ const movieSchema = new Schema({
         type: String,
         // required: true
     },
-    movieDbId: {
+    id: {
         type: Number,
         // required: true
     },
@@ -22,8 +22,8 @@ const movieSchema = new Schema({
 movieSchema.statics.getMovies = function(movieId, movieTitle, check){
     // console.log("yep dirp"),
     return this.findOneAndUpdate(
-        {movieDbId: movieId},
-        {movieDbId: movieId, title: movieTitle, haveSeen: check},
+        {id: movieId},
+        {id: movieId, title: movieTitle, haveSeen: check},
         {upsert: true, new:true},        
     )    
 }

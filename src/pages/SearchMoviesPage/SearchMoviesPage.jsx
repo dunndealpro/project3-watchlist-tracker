@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Routes, Route } from 'react-router-dom'
 import MyWatchList from "../../components/MyWatchList/MyWatchList";
-import SelectedMovieDetails from "../../components/SelecetedMovieDetails/SelectedMovieDetails";
+import SelectedMovieDetails from "../../components/SelectedMovieDetails/SelectedMovieDetails";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import "./SearchMoviesPage.css"
 import * as moviesAPI from "../../utilities/movies-api"

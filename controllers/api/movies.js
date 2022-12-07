@@ -3,7 +3,9 @@ const Movie = require('../../models/movie')
 
 module.exports = {
     addToMyMovies,
-    getNonSeenMovies
+    getNextWatchMovies,
+    getAlreadyWatchedMovies,
+    deleteFromMyMovies
 }
 
 
@@ -18,11 +20,26 @@ async function addToMyMovies(req, res){
     res.json(movie)
 }
 
-async function getNonSeenMovies(req, res){
-    console.log("ctrl non seen testing")
-    const nonSeenMovies = await Movie.find({})
-    // console.log(nonSeenMovies)
-    console.log("non seem movies", nonSeenMovies) 
-    res.json(nonSeenMovies)
-
+async function getAlreadyWatchedMovies(req, res){
+    console.log("Already Watched testing")
+    const alreadyWatchedMovies = await Movie.find({haveSeen: false})
+    // console.log(alreadyWatchedMovies)
+    console.log("non seem movies", alreadyWatchedMovies) 
+    res.json(alreadyWatchedMovies)
 }
+async function getNextWatchMovies(req, res){
+    console.log("Newxt Watch testing")
+    const nextWatchMovies = await Movie.find({haveSeen: true})
+    // console.log(nextWatchMovies)
+    console.log("non seem movies", nextWatchMovies) 
+    res.json(nextWatchMovies)
+}
+
+async function deleteFromMyMovies(req, res){
+    console.log("terminal comment Delete", req.body.id)
+    const movieToDelete = await Movie.findOneAndDelete({id: req.body.id }) 
+    console.log(movieToDelete)
+    res.json(movieToDelete)
+}
+
+

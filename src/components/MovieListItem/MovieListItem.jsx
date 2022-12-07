@@ -24,6 +24,7 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
             <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
                 <br />
                 {movie.id}
+                
                 <img src={posterUrl} alt="" /></button>
         </div>
 
