@@ -6,8 +6,11 @@ const BASE_URL = '/api/movies';
 
 export function addMovieToMyMovies(movieId, movieTitle, check){
     console.log('add to my movies step 2 ', movieId, movieTitle, check)
-    const payDirt = [movieId,movieTitle, check]
-    console.log('payDirt', payDirt)
-    return sendRequest(`${BASE_URL}/mymovies/${movieId}`, 'POST', payDirt)
+    
+    return sendRequest(`${BASE_URL}/mymovies/${movieId}`, 'POST', {title: movieTitle, haveSeen: check })
 }
 
+export function getNonSeenMovies(){
+    console.log("Nonseen step 2")
+    return sendRequest(`${BASE_URL}/movies/`, 'GET',  )
+}

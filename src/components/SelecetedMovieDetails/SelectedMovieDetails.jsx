@@ -8,7 +8,7 @@ export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMov
 
     let selectedPosterUrl = `https://image.tmdb.org/t/p/original/${selectedDisplay.poster_path}`
 
-    console.log("checkbox testing")
+    // console.log("checkbox testing")
    function handleCheck(){
        console.log('check huh')
        
@@ -37,7 +37,7 @@ export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMov
         // <div>
 
         //     <form onSubmit={() => handleAddToMyMovies(selectedDisplay.id)}>
-        //     Check if seen<input type="checkbox" />
+        //     Check if seen<input type="checkbox" name="evan" value="false" onChange={handleCheck}/>
         //     <br />
         //     <button type="submit">Add to MyMovies</button>
 

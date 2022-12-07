@@ -12,6 +12,7 @@ export default function SearchMoviesPage() {
     const [search, setSearch] = useState('');
     const [selectedMovie, setSelectedMovie] = useState({})
     const [selectedDisplay, setSelectedDisplay] = useState({})
+    // const [nonSeenMovies, setNonSeenMovies] = useState([])
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
@@ -23,18 +24,19 @@ export default function SearchMoviesPage() {
             console.log("Search: ", search)
             const response = await fetch(url);
             const data = await response.json()
-            setMovies(data);
-            console.log(movies)           
+            await setMovies(data);
+            await console.log(movies)           
         } catch (error) {
             console.log("Error!!>!>!")
             console.error(error);
         }
     }
 
-    // useEffect(() => {
-        // getMovies();
-    // handleSelectMovie()
-    //   }, []);
+    useEffect(() => {
+        getMovies();
+    handleSelectMovie()
+    // getNonSeenMovies()
+      }, []);
 
     const onChangeHandler = e => {
         setSearch(e.target.value);
@@ -44,15 +46,15 @@ export default function SearchMoviesPage() {
         const movieSelect = e
         setSelectedMovie(movieSelect)
         console.log("Test")
-        console.log(e)
-        console.log(selectedMovie)
+        console.log("Logging click event", e)
+        console.log("Showing clicked movie: ", selectedMovie)
 
         try {
             const response = await fetch(selectedUrl);
             const data = await response.json();
             setSelectedDisplay(data);
             console.log(data)
-            console.log(selectedDisplay)
+            console.log(selectedDisplay.budget)
         }catch(error){
             console.log("Error!!>!>!")
             console.error(error);
@@ -62,21 +64,26 @@ export default function SearchMoviesPage() {
     async function handleAddToMyMovies(movieId, movieTitle, check){
         console.log("Add to my movies ", movieId,movieTitle,check)
         const movie = await moviesAPI.addMovieToMyMovies(movieId, movieTitle, check)
+        console.log(movie)
     }
-   
-        // selectedMovieId = 
-        // setSelectedMovie(selectedMovieId)
-    
+
+    // async function getNonSeenMovies(){
+    //     console.log("non seen testing pre moviesAPI")
+    //     // console.log('nonseen movies ', nonSeenMovies)
+    //     const nonSeenMovies = await moviesAPI.getNonSeenMovies()
+    // }
 
     return (
         <div>
             <h1>Search Movies Page</h1>
+
             <input type="text" value={search} onChange={onChangeHandler} />
             <button type="submit" onClick={getMovies}>Search</button>
+           
             <div className = "search-movies-main">
             <SearchResults movies={movies} handleSelectMovie={handleSelectMovie}/>
             <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/>
-            <MyWatchList/>
+            <MyWatchList />
             </div>
         </div>
     )

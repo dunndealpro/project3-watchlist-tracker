@@ -24,11 +24,12 @@ movieSchema.statics.getMovies = function(movieId, movieTitle, check){
     return this.findOneAndUpdate(
         {movieDbId: movieId},
         {movieDbId: movieId, title: movieTitle, haveSeen: check},
-        {upsert: true, new:true},
-
-        
-    )
-    
+        {upsert: true, new:true},        
+    )    
 }
+
+// movieSchema.methods.getNonSeenMovies = async function(){
+//     console.log('heyhehey')
+// }
     
 module.exports=mongoose.model('Movie', movieSchema) 
