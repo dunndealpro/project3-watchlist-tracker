@@ -3,23 +3,25 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
     // console.log("huh? ")
 
     let movieTitle
-    let posterUrl
+    let posterUrl =`https://image.tmdb.org/t/p/original/${movie.poster_path}`
 
-    const clickTest = e => {
+    // const clickTest = e => {
 
-        // console.log("Test ", movie.id)
-    }
+    //     // console.log("Test ", movie.id)
+    // }
 
     if (movie) {
-        // console.log(movie.title)
+        console.log(movie)
         movieTitle = movie.title
+        console.log(movie.poster_path)
 
         posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+        console.log(posterUrl)
     } else { movieTitle = "False" }
 
     return (
         <div className="search-results-poster">
-            <button onClick={() => handleSelectMovie(movie.id)}> {movieTitle}
+            <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
                 <br />
                 {movie.id}
                 <img src={posterUrl} alt="" /></button>

@@ -1,6 +1,12 @@
-import * as moviesAPI from "../../utilities/movies-api"
-import MovieListItem from "../../components/MovieListItem/MovieListItem"
 import { useState, useEffect } from "react"
+import { Routes, Route } from 'react-router-dom'
+import MyWatchList from "../../components/MyWatchList/MyWatchList";
+import SelectedMovieDetails from "../../components/SelecetedMovieDetails/SelectedMovieDetails";
+import SelectedWatch from "../../components/SelectedWatch/SelectedWatch";
+import AlreadyWatchedMovies from "../../components/AlreadyWatchedMovies/AlreadyWatchedMovies";
+import NextWatchMovies from "../../components/NextWatchMovies/NextWatchMovies";
+import "./MyMoviesPage.css"
+import * as moviesAPI from "../../utilities/movies-api"
 
 export default function MyMoviesPage() {
 
@@ -22,20 +28,34 @@ export default function MyMoviesPage() {
         getMyMovies()
       }, []);
 
-    return (
+      return (
         <div>
-            <h1>My Movies Page</h1>
-            <div> 
-                    <ul>
-                        {myMovies.map((movies) => ( 
-                            <MovieListItem 
-                            key={movies.title} 
-                            movie={movies} 
-                            // handleSelectMovie={handleSelectMovie}
-                            />
-                        ))}
-                    </ul>
-                </div>         
+            <h1>MyMovies Page</h1>
+<div className="my-movies-main">
+            <NextWatchMovies/>
+            {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
+<SelectedWatch/>           
+            <AlreadyWatchedMovies/>
+
+</div>
+          
         </div>
     )
+
+    // return (
+    //     <div>
+    //         <h1>My Movies Page</h1>
+    //         <div> 
+    //                 <ul>
+    //                     {myMovies.map((movies) => ( 
+    //                         <MovieListItem 
+    //                         key={movies.title} 
+    //                         movie={movies} 
+    //                         // handleSelectMovie={handleSelectMovie}
+    //                         />
+    //                     ))}
+    //                 </ul>
+    //             </div>         
+    //     </div>
+    // )
 }

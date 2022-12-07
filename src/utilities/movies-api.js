@@ -16,6 +16,6 @@ export function getNonSeenMovies(){
 }
 
 export function getMyMovies(){
-    console.log("My Movies stuff")
+    console.log("My Movies stuff - API")
     return sendRequest(`${BASE_URL}/movies/`, 'GET',  )
 }
