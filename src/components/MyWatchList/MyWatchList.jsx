@@ -3,39 +3,39 @@ import MovieListItem from "../MovieListItem/MovieListItem"
 import { useState, useEffect } from "react"
 
 export default function MyWatchList(){
-    // let nonSeenMovies =  getNonSeenMovies()
+    // let nextWatchMovies =  getNonSeenMovies()
     // console.log("My watch list: ", nonSeenMovies)
 
-    const [nonSeenMovies, setNonSeenMovies] = useState([])
+    const [nextWatchMovies, setNextWatchMovies] = useState([])
 
     console.log('hey there')
 
-    async function getNonSeenMovies(){
-        console.log("non seen testing pre moviesAPI")
-        // console.log('nonseen movies ', nonSeenMovies)
-        let nonSeenMoviesTemp = await moviesAPI.getNonSeenMovies()
-        console.log("non seen stuff", nonSeenMoviesTemp)
-        setNonSeenMovies(nonSeenMoviesTemp)
-           console.log('nonseen movies ', nonSeenMovies)
+    async function getNextWatchMovies(){
+        console.log("next seen testing pre moviesAPI")
+        // console.log('nextseen movies ', nextWatchMovies)
+        let nextWatchMoviesTemp = await moviesAPI.getNextWatchMovies()
+        console.log("next seen stuff", nextWatchMoviesTemp)
+        setNextWatchMovies(nextWatchMoviesTemp)
+           console.log('nextseen movies ', nextWatchMovies)
     }
-    // console.log(nonSeenMovies[20].title)
+    // console.log(nextWatchMovies[20].title)
 
     useEffect(() => {
-        getNonSeenMovies()
+        getNextWatchMovies()
       }, []);
     
-    // getNonSeenMovies()
+    // getnextWatchMovies()
     
     return(
 
         <div>
             My Watch List Goes Here
             <br />
-            {/* {nonSeenMovies[20].title} */}
+            {/* {nextWatchMovies[20].title} */}
 
             <div> 
                     <ul>
-                        {nonSeenMovies.map((movies) => ( 
+                        {nextWatchMovies.map((movies) => ( 
                             <MovieListItem 
                             key={movies.title} 
                             movie={movies} 

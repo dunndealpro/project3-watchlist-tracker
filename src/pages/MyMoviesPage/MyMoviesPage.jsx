@@ -11,34 +11,36 @@ import * as moviesAPI from "../../utilities/movies-api"
 export default function MyMoviesPage() {
 
     const [myMovies, setMyMovies] = useState([])
+    const [myNextWatch, setMyNextWatch] = useState([])
+    const [alreadyWatced, setAlreadyWatched] = ([])
 
     console.log('hey there my movies')
 
-    async function getMyMovies(){
+    async function getMyMovies() {
         console.log("getting MyMovies")
         // console.log('nonseen movies ', nonSeenMovies)
         let myMoviesTemp = await moviesAPI.getMyMovies()
         console.log("my movies stuff", myMoviesTemp)
         setMyMovies(myMoviesTemp)
-           console.log('my movies movies ', myMovies)
+        console.log('my movies movies ', myMovies)
     }
     // console.log(nonSeenMovies[20].title)
 
     useEffect(() => {
         getMyMovies()
-      }, []);
+    }, []);
 
-      return (
+    return (
         <div>
             <h1>MyMovies Page</h1>
-<div className="my-movies-main">
-            <NextWatchMovies/>
-            {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
-<SelectedWatch/>           
-            <AlreadyWatchedMovies/>
+            <div className="my-movies-main">
+                <NextWatchMovies />
+                {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
+                <SelectedWatch />
+                <AlreadyWatchedMovies />
 
-</div>
-          
+            </div>
+
         </div>
     )
 
