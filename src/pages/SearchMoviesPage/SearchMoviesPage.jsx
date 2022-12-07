@@ -52,10 +52,10 @@ export default function SearchMoviesPage() {
         console.log("Showing clicked movie: ", selectedMovie)
 
         try {
-            const response = await fetch(selectedUrl);
-            const data = await response.json();
-            setSelectedDisplay(data);
-            console.log(data)
+            const response = await fetch(selectedUrl).then(res => res.json());
+            // const data = await response.json();
+            setSelectedDisplay(response);
+            console.log(response)
             console.log(selectedDisplay.budget)
         }catch(error){
             console.log("Error!!>!>!")

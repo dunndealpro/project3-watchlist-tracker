@@ -17,7 +17,11 @@ export function checkToken() {
 }
 
 export function addToMyMovies(movieId, movieTitle, check){
-  console.log('add to user model step 2 ', movieId)
-  
+  console.log('add to user model step 2 ', movieId)  
   return sendRequest(`${BASE_URL}/movies/`, 'POST',{ movieId})
+}
+
+export function deleteFromMyMovies(movieId, movieTitle, check){
+  console.log('delete from user model step 2 ', movieId)  
+  return sendRequest(`${BASE_URL}/movies/`, 'DELETE',{ movieId})
 }

@@ -7,6 +7,8 @@ import AlreadyWatchedMovies from "../../components/AlreadyWatchedMovies/AlreadyW
 import NextWatchMovies from "../../components/NextWatchMovies/NextWatchMovies";
 import "./MyMoviesPage.css"
 import * as moviesAPI from "../../utilities/movies-api"
+import * as usersAPI from "../../utilities/users-api"
+
 
 export default function MyMoviesPage() {
 
@@ -58,8 +60,10 @@ export default function MyMoviesPage() {
 
 
     async function handleDeleteFromMyMovies(movieId){
-        console.log("delete from my movies ", movieId)
-        const movie = await moviesAPI.deleteFromMyMovies(movieId)
+        console.log("delete from my movies model ", movieId)
+        // const movie = await moviesAPI.deleteFromMyMovies(movieId)
+        const movie = await usersAPI.deleteFromMyMovies(movieId)
+
         console.log(movie)
     }
 
@@ -71,8 +75,8 @@ export default function MyMoviesPage() {
                 {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
                 <SelectedMyMovieDetails 
                 selectedDisplay={selectedDisplay} 
-                handleDeleteFromMyMovies={handleDeleteFromMyMovies
-                } />
+                handleDeleteFromMyMovies={handleDeleteFromMyMovies}
+                 />
                 {/* <SelectedWatch /> */}
                 <AlreadyWatchedMovies 
                 handleSelectMovie={handleSelectMovie}/>

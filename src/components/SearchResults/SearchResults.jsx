@@ -10,10 +10,6 @@ export default function SearchResults({ movies, handleSelectMovie }) {
             console.log("Test: ", movies.results[0].title)
         }
     }
-
-
-  
-
     // moviesTest()
 
     // const posterUrl = `https://image.tmdb.org/t/p/original/${movies.results[0].poster_path}`

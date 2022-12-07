@@ -15,5 +15,6 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 
 router.post('/movies', usersCtrl.addToMyMovies)
+router.delete('/movies', usersCtrl.deleteFromMyMovies)
 
 module.exports = router;

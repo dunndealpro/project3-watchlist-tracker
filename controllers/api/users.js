@@ -7,8 +7,27 @@ module.exports = {
   create,
   login,
   checkToken,
-  addToMyMovies
+  addToMyMovies,
+  deleteFromMyMovies
 };
+
+async function deleteFromMyMovies(req, res){ 
+  console.log("Delete movie to user models", req.user._id)
+  console.log("Movie thingy ", req.body.movieId)  
+
+  let user =  await User.findOne({id: req.user._id})
+  let movie = await Movie.findOne({id: req.body.movieId})
+  console.log("user: ",user)
+  console.log("movie: ", movie._id)  
+  let idx=user.myMovies.indexOf(movie._id)
+  console.log('idx ', idx)
+  user.myMovies.splice(idx, 1)
+  console.log(user.myMovies)
+  user.save() 
+  console.log(user.myMovies)
+  res.json(user)
+  // console.log(movie._id)
+}
 
 function checkToken(req, res) {
   console.log(req.user);
@@ -55,9 +74,7 @@ async function addToMyMovies(req, res){
   let user =  await User.findOne({id: req.user._id})
   let movie = await Movie.findOne({id: req.body.movieId})
   console.log("user: ",user)
-  console.log("movie: ", movie)
-
-  
+  console.log("movie: ", movie)  
   user.myMovies.push(movie._id)
   console.log(movie)
   user.save()

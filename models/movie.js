@@ -10,11 +10,9 @@ const movieSchema = new Schema({
         type: Number,
         // required: true
     },
-    haveSeen: {
-        type: Boolean, 
-        // required: true,
+    
     },
-},{
+{
         timestamps: true
     });
     
@@ -23,7 +21,7 @@ movieSchema.statics.getMovies = function(movieId, movieTitle, check){
     // console.log("yep dirp"),
     return this.findOneAndUpdate(
         {id: movieId},
-        {id: movieId, title: movieTitle, haveSeen: check},
+        {id: movieId, title: movieTitle },
         {upsert: true, new:true},        
     )    
 }
