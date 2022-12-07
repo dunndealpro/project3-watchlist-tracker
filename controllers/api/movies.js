@@ -1,9 +1,10 @@
 const Movie = require('../../models/movie')
+const User = require('../../models/user')
 // const { movie } = require('../../routes/api/movies')
 
 module.exports = {
     addToMyMovies,
-    getNextWatchMovies,
+    // getNextWatchMovies,
     getAlreadyWatchedMovies,
     deleteFromMyMovies
 }
@@ -22,23 +23,27 @@ async function addToMyMovies(req, res){
 
 async function getAlreadyWatchedMovies(req, res){
     console.log("Already Watched testing")
-    const alreadyWatchedMovies = await Movie.find({haveSeen: false})
+    let user =  await User.findById( req.user._id).populate('myMovies').exec()
+    let alreadyWatchedMovies = user.myMovies
     // console.log(alreadyWatchedMovies)
-    console.log("non seem movies", alreadyWatchedMovies) 
+    console.log("my movies", alreadyWatchedMovies) 
+    console.log("Logged in user: ", alreadyWatchedMovies)
     res.json(alreadyWatchedMovies)
 }
-async function getNextWatchMovies(req, res){
-    console.log("Newxt Watch testing")
-    const nextWatchMovies = await Movie.find({haveSeen: true})
-    // console.log(nextWatchMovies)
-    console.log("non seem movies", nextWatchMovies) 
-    res.json(nextWatchMovies)
-}
+
+// async function getNextWatchMovies(req, res){
+//     console.log("Next Watch testing")
+//     const nextWatchMovies = await Movie.find({haveSeen: true})
+//     // console.log(nextWatchMovies)
+//     console.log("next watch movies", nextWatchMovies) 
+//     res.json(nextWatchMovies)
+// }
 
 async function deleteFromMyMovies(req, res){
     console.log("terminal comment Delete", req.body.id)
     const movieToDelete = await Movie.findOneAndDelete({id: req.body.id }) 
     console.log(movieToDelete)
+
     res.json(movieToDelete)
 }
 
