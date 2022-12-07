@@ -5,6 +5,7 @@ import SelectedMovieDetails from "../../components/SelecetedMovieDetails/Selecte
 import SearchResults from "../../components/SearchResults/SearchResults";
 import "./SearchMoviesPage.css"
 import * as moviesAPI from "../../utilities/movies-api"
+import NextWatchMovies from "../../components/NextWatchMovies/NextWatchMovies";
 
 
 export default function SearchMoviesPage() {
@@ -83,7 +84,7 @@ export default function SearchMoviesPage() {
             <div className = "search-movies-main">
             <SearchResults movies={movies} handleSelectMovie={handleSelectMovie}/>
             <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/>
-            <MyWatchList />
+            <NextWatchMovies />
             </div>
         </div>
     )
