@@ -1,0 +1,7 @@
+.landing-page{
+    justify-content: center;
+    background-color:rgb(196,175,130);
+    border: 2px solid black;
+    margin: 2%;
+    border-radius: 10px;
+}

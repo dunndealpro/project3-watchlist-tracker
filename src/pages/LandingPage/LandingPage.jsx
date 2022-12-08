@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { checkToken } from "../../utilities/users-service";
 import { useEffect, useState } from 'react';
+import './LandingPage.css'
 
 import LandingPoster from "../../components/LandingPoster/LandingPoster";
 import LocationTitle from "../../components/LocationTitle/LocationTitle";
@@ -44,8 +45,9 @@ export default function LandingPage({ user }) {
         console.log(expDate);
     }
     return (
-        <div>
-            <h1>Welcome {user.name} to MyWatch!</h1>
+        <div className="landing-page">
+            <h1>Welcome to MyWatch!</h1>
+            <h4>(witty comment goes here)</h4>
             
            <Link to="/search/movies">Search Movies</Link>&nbsp; | &nbsp;
            <Link to="/search/shows">Search Shows</Link>&nbsp; | &nbsp;
@@ -55,7 +57,7 @@ export default function LandingPage({ user }) {
             {/* <SearchMovies/> */}
             <LandingPoster />
 
-            <button onClick={handleCheckToken}>Check When My Login Expires</button>
+            {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
         </div>
     )
 }

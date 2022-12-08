@@ -3,30 +3,39 @@
     flex-direction: column;
 align-items: center;
 justify-content: center;
+height: 100vh;
 /* margin: 10vw; */
 
 }
 
 .form-container{    
-    width: 50vw;
+    width: 40vw;
     display: grid;
-    flex-direction: column;
+    /* flex-direction: column; */
     size: 20px;
-    background-color: red;
+    background-color: rgb(190,193,150);
     /* justify-content: center; */
     align-content: center;
-    margin: 10vw 0 10vw 0;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid rgb(39,70,73) 2px;
+    
 }
 
 .btn-sign-log{
+    font-size: 20px;
     width: 100px;
-    background-color: rgb(166,198,183);
+    /* background-color: rgb(166,198,183); */
+    background-color: rgb(145,130,101);
+    border-radius: 5px;
     border: solid black 1px;
 }
 
 .btn-sign-log:hover{
     background-color: rgb(41,90,95);
     color: white;
+    border: solid white 1px;
 }
 
 

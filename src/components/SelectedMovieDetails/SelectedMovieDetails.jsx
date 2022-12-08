@@ -20,7 +20,7 @@ export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMov
 
     return (
         <div>
-            
+             
             {/* <input name="seenCheck" type="checkbox" onChange={handleCheck}/> */}
             <br />
             <button onClick={() => handleAddToMyMovies(selectedDisplay.id, selectedDisplay.title)} type="submit">Add to MyMovies</button>

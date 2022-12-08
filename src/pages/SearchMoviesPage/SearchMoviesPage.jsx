@@ -14,7 +14,7 @@ export default function SearchMoviesPage() {
     const [movies, setMovies] = useState({});
     const [search, setSearch] = useState('');
     const [selectedMovie, setSelectedMovie] = useState({})
-    const [selectedDisplay, setSelectedDisplay] = useState()
+    const [selectedDisplay, setSelectedDisplay] = useState(null)
     // const [nonSeenMovies, setNonSeenMovies] = useState([])
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
@@ -23,7 +23,7 @@ export default function SearchMoviesPage() {
 
     const getMovies = async () => {
 
-        try {          
+        try {
             console.log("Search: ", search)
             const response = await fetch(url).then(res => res.json());
             // const data = await response.json()
@@ -35,7 +35,7 @@ export default function SearchMoviesPage() {
         }
     }
 
-    useEffect(() => {    
+    useEffect(() => {
         getMovies();
         // handleSelectMovie()
         // getNonSeenMovies()
@@ -45,7 +45,7 @@ export default function SearchMoviesPage() {
         setSearch(e.target.value);
     }
 
-    
+
 
     let selectedUrl
 
@@ -68,6 +68,7 @@ export default function SearchMoviesPage() {
         setSelectedDisplay(response);
         console.log(response)
         console.log(selectedDisplay)
+        // window.location.reload()
         // }catch(error){
         // console.error(error);
         // console.log("Error!!>!>!")
@@ -80,7 +81,8 @@ export default function SearchMoviesPage() {
         const myMovie = await usersAPI.addToMyMovies(movieId)
         console.log(movie)
         console.log("User Model My Movies?", myMovie)
-
+        setSelectedMovie({})
+        setSelectedDisplay(null)
     }
 
     // async function getNonSeenMovies(){
@@ -93,7 +95,7 @@ export default function SearchMoviesPage() {
         <div>
             <h1>Search Movies Page</h1>
 
-            <input type="text" value={search} onChange={onChangeHandler} />
+            <input type="text" value={search} onChange={onChangeHandler} placeholder="enter movie here" />
             <button type="submit" onClick={getMovies}>Search</button>
 
             <div className="search-movies-main">
