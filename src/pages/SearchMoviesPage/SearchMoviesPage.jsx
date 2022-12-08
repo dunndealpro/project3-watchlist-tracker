@@ -23,11 +23,11 @@ export default function SearchMoviesPage() {
 
     const getMovies = async () => {
 
-        try {
+        try {          
             console.log("Search: ", search)
-            const response = await fetch(url);
-            const data = await response.json()
-            setMovies(data);
+            const response = await fetch(url).then(res => res.json());
+            // const data = await response.json()
+            setMovies(response);
             console.log(movies)
         } catch (error) {
             console.log("Error!!>!>!")
@@ -35,7 +35,7 @@ export default function SearchMoviesPage() {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {    
         getMovies();
         // handleSelectMovie()
         // getNonSeenMovies()
@@ -98,6 +98,7 @@ export default function SearchMoviesPage() {
         const myMovie = await usersAPI.addToMyMovies(movieId)
         console.log(movie)
         console.log("User Model My Movies?", myMovie)
+
     }
 
     // async function getNonSeenMovies(){

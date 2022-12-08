@@ -18,7 +18,7 @@ export default function SearchResults({ movies, handleSelectMovie }) {
                     <ul>
                         {movies.results.map((movie) => ( 
                             <MovieListItem 
-                            key={movie.title} 
+                            key={movie.id} 
                             movie={movie} 
                             handleSelectMovie={handleSelectMovie}
                             />
