@@ -14,9 +14,9 @@ export default function LandingPoster() {
     let photoUrl4
 
     useEffect(() => {
-        console.log("get landing poster?")
+        // console.log("get landing poster?")
         getLandingPoster()
-        console.log(landingPoster)
+        // console.log(landingPoster)
         // const photoUrl1 = `https://image.tmdb.org/t/p/original/${landingPoster.results[2].poster_path}`
         
     }, [])
@@ -26,8 +26,8 @@ export default function LandingPoster() {
             const response = await fetch(url).then(res=> res.json());
             // const data = await response.json();
             setLandingPoster(response)
-            console.log("poster working? ", landingPoster)
-            console.log(landingPoster.results[0]) 
+            // console.log("poster working? ", response)
+            // console.log(landingPoster.results[0]) 
         } catch (error) { 
             console.log("Error! ", error) 
         }
