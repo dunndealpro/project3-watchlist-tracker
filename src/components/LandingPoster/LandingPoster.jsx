@@ -23,9 +23,9 @@ export default function LandingPoster() {
 
     const getLandingPoster = async () => {
         try {
-            const response = await fetch(url);
-            const data = await response.json();
-            setLandingPoster(data)
+            const response = await fetch(url).then(res=> res.json());
+            // const data = await response.json();
+            setLandingPoster(response)
             console.log("poster working? ", landingPoster)
             console.log(landingPoster.results[0]) 
         } catch (error) { 

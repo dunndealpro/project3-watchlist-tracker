@@ -1,0 +1,18 @@
+.search-results-poster{
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black 2px;
+    margin:2px;
+    width: 10vw;
+
+}
+
+.search-results-poster img{
+   
+    width: 10vw;
+    /* padding: 5px; */
+    
+}

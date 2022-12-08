@@ -12,8 +12,8 @@ import * as usersAPI from "../../utilities/users-api"
 
 export default function MyMoviesPage() {
 
-    const [selectedMovie, setSelectedMovie] = useState({})
-    const [selectedDisplay, setSelectedDisplay] = useState({})
+    const [selectedMovie, setSelectedMovie] = useState()
+    const [selectedDisplay, setSelectedDisplay] = useState()
     const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
     
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
@@ -99,10 +99,15 @@ export default function MyMoviesPage() {
                 <AlreadyWatchedMovies 
                 handleSelectMovie={handleSelectMovie}
                 alreadyWatchedMovies={alreadyWatchedMovies}/>
-                <SelectedMyMovieDetails 
+                
+                {selectedDisplay ?  <SelectedMyMovieDetails 
                 selectedDisplay={selectedDisplay} 
                 handleDeleteFromMyMovies={handleDeleteFromMyMovies}
-                 />
+                 />  :
+                 <p></p>
+
+                }
+               
                 {/* <SelectedWatch /> */}
 
             </div>

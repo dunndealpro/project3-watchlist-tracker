@@ -23,15 +23,14 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
 
     return (
         <div className="search-results-poster">
-            <Link to="/movies"
+            <button
             onClick={() => handleSelectMovie(movie.id)}> {movie.title}
             <br />              
           
             <img src={posterUrl} alt="" />
             
            
-                </Link>
+                </button>
         </div>
-
     )
 }

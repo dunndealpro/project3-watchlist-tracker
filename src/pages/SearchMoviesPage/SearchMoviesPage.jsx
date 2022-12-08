@@ -14,7 +14,7 @@ export default function SearchMoviesPage() {
     const [movies, setMovies] = useState({});
     const [search, setSearch] = useState('');
     const [selectedMovie, setSelectedMovie] = useState({})
-    const [selectedDisplay, setSelectedDisplay] = useState({})
+    const [selectedDisplay, setSelectedDisplay] = useState()
     // const [nonSeenMovies, setNonSeenMovies] = useState([])
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
@@ -45,25 +45,7 @@ export default function SearchMoviesPage() {
         setSearch(e.target.value);
     }
 
-    // const handleSelectMovie = async e => {
-    //     const movieSelect = e
-    //     console.log("Test")
-    //     console.log("Logging click event", e)
-    //     setSelectedMovie(movieSelect)
-    //     console.log("Showing clicked movie: ", selectedMovie)
-
-    //     try {
-    //         const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
-    //         const response = await fetch(selectedUrl).then(res => res.json());
-    //         // const data = await response.json();
-    //         setSelectedDisplay(response);
-    //         console.log(response)
-    //         console.log(selectedDisplay)
-    //     }catch(error){
-    //         console.log("Error!!>!>!")
-    //         console.error(error);
-    //     }       
-    // }
+    
 
     let selectedUrl
 
@@ -118,9 +100,11 @@ export default function SearchMoviesPage() {
                 <SearchResults
                     movies={movies}
                     handleSelectMovie={handleSelectMovie} />
-                <SelectedMovieDetails
+                {selectedDisplay ? <SelectedMovieDetails
                     selectedDisplay={selectedDisplay}
                     handleAddToMyMovies={handleAddToMyMovies} />
+                    :
+                    <p></p>}
                 <AlreadyWatchedMovies />
             </div>
         </div>

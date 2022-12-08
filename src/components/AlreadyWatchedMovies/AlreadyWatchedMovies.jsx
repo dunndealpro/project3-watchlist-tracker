@@ -1,5 +1,6 @@
 import * as moviesAPI from "../../utilities/movies-api"
 import MovieListItem from "../MovieListItem/MovieListItem"
+import MyMovieListItem from "../MyMovieListItem /MyMovieListItem"
 import { useState, useEffect } from "react"
 
 export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextWatchMovies =  getNonSeenMovies()
@@ -11,7 +12,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
     console.log('hey there already needs to be renamed to my movies')
 
     async function getAlreadyWatchedMovies(){
-        console.log("ALREADY! pre moviesAPI")
+        console.log("ALREADY! pre moviesAPI", alreadyWatchedMovies)
        
         let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
       
@@ -39,7 +40,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
                     <ul>
                         {alreadyWatchedMovies.map((movies) => ( 
                             
-                            <MovieListItem 
+                            <MyMovieListItem 
                             key={movies.title} 
                             movie={movies} 
                             handleSelectMovie={handleSelectMovie}
