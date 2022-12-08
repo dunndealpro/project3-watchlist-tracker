@@ -16,8 +16,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
         let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
       
         setAlreadyWatchedMovies(alreadyWatchedTemp)
-        //    console.log('next watch movies ', nextWatchMovies)
-  
+        //    console.log('next watch movies ', nextWatchMovies)  
     }
 
 

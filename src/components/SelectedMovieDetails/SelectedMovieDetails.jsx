@@ -27,7 +27,7 @@ export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMov
             <br />
             {selectedDisplay.title}
             <br />
-            {selectedDisplay.release_date}
+            Released: {selectedDisplay.release_date}
             <br />
             {selectedDisplay.overview}
             <br />

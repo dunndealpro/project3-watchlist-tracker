@@ -28,7 +28,7 @@ export default function SelectedMyMovieDetails({ selectedDisplay, handleDeleteFr
             <br />
             {selectedDisplay.title}
             <br />
-            {selectedDisplay.release_date}
+            Release Date: {selectedDisplay.release_date}
             <br />
             {selectedDisplay.overview}
             <br />

@@ -29,10 +29,7 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
           
             <img src={posterUrl} alt="" />
             
-            // <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
-            //     <br />              
-              
-            //     <img src={posterUrl} alt="" /></button>
+           
                 </Link>
         </div>
 
