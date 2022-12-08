@@ -18,7 +18,7 @@ export default function SearchMoviesPage() {
 
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
-    const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
+    
 
     const getMovies = async () => {  
 
@@ -26,8 +26,8 @@ export default function SearchMoviesPage() {
             console.log("Search: ", search)
             const response = await fetch(url);
             const data = await response.json()
-            await setMovies(data);
-            await console.log(movies)           
+           setMovies(data);
+           console.log(movies)           
         } catch (error) {
             console.log("Error!!>!>!")
             console.error(error);
@@ -36,7 +36,7 @@ export default function SearchMoviesPage() {
 
     useEffect(() => {
         getMovies();
-    handleSelectMovie()
+    // handleSelectMovie()
     // getNonSeenMovies()
       }, []);
 
@@ -46,21 +46,22 @@ export default function SearchMoviesPage() {
 
     const handleSelectMovie = async e => {
         const movieSelect = e
-        setSelectedMovie(movieSelect)
         console.log("Test")
         console.log("Logging click event", e)
+        setSelectedMovie(movieSelect)
         console.log("Showing clicked movie: ", selectedMovie)
-
+        
         try {
+            const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
             const response = await fetch(selectedUrl).then(res => res.json());
             // const data = await response.json();
             setSelectedDisplay(response);
             console.log(response)
-            console.log(selectedDisplay.budget)
+            console.log(selectedDisplay)
         }catch(error){
             console.log("Error!!>!>!")
             console.error(error);
-        }
+        }       
     }
     
     async function handleAddToMyMovies(movieId, movieTitle, check){

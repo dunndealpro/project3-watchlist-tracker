@@ -9,10 +9,10 @@ export default function NextWatchMovies(){
     const [nextWatchMovies, setNextWatchMovies] = useState([])
     // const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
 
-    console.log('hey there')
+    // console.log('hey there')
 
     async function getNextWatchMovies(){
-        console.log("next watch pre moviesAPI")
+        // console.log("next watch pre moviesAPI")
         // console.log('nextseen movies ', nextWatchMovies)
         let nextWatchMoviesTemp = await moviesAPI.getNextWatchMovies()
         // let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()

@@ -11,12 +11,12 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
     // }
 
     if (movie) {
-        console.log(movie)
+        // console.log(movie)
         movieTitle = movie.title
-        console.log(movie.poster_path)
+        // console.log(movie.poster_path)
 
         posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
-        console.log(posterUrl)
+        // console.log(posterUrl)
     } else { movieTitle = "False" }
 
     return (
