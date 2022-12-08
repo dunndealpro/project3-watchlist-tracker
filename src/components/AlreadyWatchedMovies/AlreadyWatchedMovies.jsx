@@ -32,7 +32,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
     return(
 
         <div>
-           Already Watched List Goes Here!!
+           Select a movie from your collection
             <br />
             {/* {nextWatchMovies[20].title} */}
 

@@ -71,15 +71,15 @@ export default function MyMoviesPage() {
         <div>
             <h1>MyMovies Page</h1>
             <div className="my-movies-main">
-                <NextWatchMovies />
+                {/* <NextWatchMovies /> */}
                 {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
+                <AlreadyWatchedMovies 
+                handleSelectMovie={handleSelectMovie}/>
                 <SelectedMyMovieDetails 
                 selectedDisplay={selectedDisplay} 
                 handleDeleteFromMyMovies={handleDeleteFromMyMovies}
                  />
                 {/* <SelectedWatch /> */}
-                <AlreadyWatchedMovies 
-                handleSelectMovie={handleSelectMovie}/>
 
             </div>
 
