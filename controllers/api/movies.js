@@ -12,8 +12,8 @@ module.exports = {
 
 async function addToMyMovies(req, res){
     console.log('testing', req.params, req.body)
-    const movie = await Movie.getMovies(parseInt(req.params.id), req.body.title, req.body.haveSeen)
-    await console.log("movie:   ", movie)
+    const movie = await Movie.getMovies(parseInt(req.params.id), req.body.title)
+    console.log("movie:   ", movie)
     // console.log(req)
     // res.console.log("huh") 
     // let movie = new Movie(req)
@@ -25,7 +25,7 @@ async function getAlreadyWatchedMovies(req, res){
     console.log("Already Watched testing")
     let user =  await User.findById( req.user._id).populate('myMovies').exec()
     let alreadyWatchedMovies = user.myMovies
-    // console.log(alreadyWatchedMovies)
+    console.log("USer: ", user)
     console.log("my movies", alreadyWatchedMovies) 
     console.log("Logged in user: ", alreadyWatchedMovies)
     res.json(alreadyWatchedMovies)
