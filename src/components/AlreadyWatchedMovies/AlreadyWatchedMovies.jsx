@@ -8,7 +8,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
     // const [nextWatchMovies, setNextWatchMovies] = useState([])
     const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
 
-    console.log('hey there')
+    console.log('hey there already needs to be renamed to my movies')
 
     async function getAlreadyWatchedMovies(){
         console.log("ALREADY! pre moviesAPI")
@@ -19,7 +19,7 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
         //    console.log('next watch movies ', nextWatchMovies)
   
     }
-    // console.log(nextWatchMovies[20].title)
+
 
     
 

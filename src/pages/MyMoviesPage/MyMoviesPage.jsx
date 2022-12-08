@@ -14,10 +14,32 @@ export default function MyMoviesPage() {
 
     const [selectedMovie, setSelectedMovie] = useState({})
     const [selectedDisplay, setSelectedDisplay] = useState({})
-
+    const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
+    
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
     const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
+    
+    
 
+    console.log('hey there')
+
+    async function getAlreadyWatchedMovies(){
+        console.log("ALREADY! pre moviesAPI")
+       
+        let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
+      
+        setAlreadyWatchedMovies(alreadyWatchedTemp)
+        //    console.log('next watch movies ', nextWatchMovies)
+  
+    }
+    // console.log(nextWatchMovies[20].title)
+
+    
+
+    useEffect(() => {
+        getAlreadyWatchedMovies()
+        
+      }, []);
 
     // const [myMovies, setMyMovies] = useState([])
     // const [myNextWatch, setMyNextWatch] = useState([])
@@ -51,7 +73,7 @@ export default function MyMoviesPage() {
             const data = await response.json();
             setSelectedDisplay(data);
             console.log(data)
-            console.log(selectedDisplay.movieDbId)
+            console.log(selectedDisplay)
         }catch(error){
             console.log("Error!!>!>!")
             console.error(error);
@@ -65,6 +87,7 @@ export default function MyMoviesPage() {
         const movie = await usersAPI.deleteFromMyMovies(movieId)
 
         console.log(movie)
+        
     }
 
     return (
@@ -74,7 +97,8 @@ export default function MyMoviesPage() {
                 {/* <NextWatchMovies /> */}
                 {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
                 <AlreadyWatchedMovies 
-                handleSelectMovie={handleSelectMovie}/>
+                handleSelectMovie={handleSelectMovie}
+                alreadyWatchedMovies={alreadyWatchedMovies}/>
                 <SelectedMyMovieDetails 
                 selectedDisplay={selectedDisplay} 
                 handleDeleteFromMyMovies={handleDeleteFromMyMovies}

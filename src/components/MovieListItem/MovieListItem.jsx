@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom"
 import "./MovieListItem.css"
+
 export default function MovieListItem({ movie, handleSelectMovie }) {
     // console.log("huh? ")
 
@@ -21,10 +23,17 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
 
     return (
         <div className="search-results-poster">
-            <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
-                <br />              
+            <Link to="/movies"
+            onClick={() => handleSelectMovie(movie.id)}> {movie.title}
+            <br />              
+          
+            <img src={posterUrl} alt="" />
+            
+            // <button onClick={() => handleSelectMovie(movie.id)}> {movie.title}
+            //     <br />              
               
-                <img src={posterUrl} alt="" /></button>
+            //     <img src={posterUrl} alt="" /></button>
+                </Link>
         </div>
 
     )

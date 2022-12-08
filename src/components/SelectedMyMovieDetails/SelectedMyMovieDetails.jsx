@@ -2,7 +2,7 @@ import './SelectedMyMovieDetails.css'
 import { useState } from 'react'
 
 
-export default function SelectedMyMovieDetails({ selectedDisplay, handleAddToMyMovies, handleDeleteFromMyMovies}) {
+export default function SelectedMyMovieDetails({ selectedDisplay, handleDeleteFromMyMovies}) {
 
     // const [check, setCheck]= useState(false)
 
