@@ -9,11 +9,11 @@ export default function SearchResults({ movies, handleSelectMovie }) {
     // const posterUrl = `https://image.tmdb.org/t/p/original/${movies.results[0].poster_path}`
 
     // console.log("Results: ", movies.results[0].title)
+    console.log("Search Results: ", props.movies)
     return (
         <div>
             Search Results
-            <div>
-            {movies.results ?                
+            <div>            {movies.results ?                
                 <div> 
                     <ul>
                         {movies.results.map((movie) => ( 

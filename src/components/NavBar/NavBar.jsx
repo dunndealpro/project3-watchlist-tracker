@@ -13,7 +13,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav classname='navbar'>
+    <nav className='navbar'>
       <Link to="/movies">MyMovies</Link>
       &nbsp; | &nbsp;
       <Link to="/shows">MyShows</Link>
