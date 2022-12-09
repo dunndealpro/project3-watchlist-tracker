@@ -17,14 +17,14 @@ export default function SelectedMyMovieDetails(props) {
 //        }else{setCheck(false)}
 //        console.log(check)
 //    }
-
+console.log(props)
     return (
         <div>
             
             {/* <input name="seenCheck" type="checkbox" onChange={handleCheck}/> */}
             <br />
             {/* <button onClick={() => handleAddToMyMovies(selectedDisplay.id, selectedDisplay.title)} type="submit">Add to My  Movies</button> */}
-            <button onClick={() => props.handleDeleteFromMyMovies(props.selectedDisplay.id)} type="submit">Delete from MyMovies</button>
+            <button onClick={() => props.handleDeleteFromMyMovies(props.selectedDisplay.id)} type="submit">Delete from MyMovies!</button>
             <br />
             {props.selectedDisplay.title}
             <br />

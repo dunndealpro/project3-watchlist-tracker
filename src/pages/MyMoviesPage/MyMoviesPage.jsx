@@ -22,24 +22,25 @@ export default function MyMoviesPage(props) {
     
 
     console.log('hey there')
+    // props.setSelectedDisplay(null)
 
-    async function getAlreadyWatchedMovies(){
-        console.log("ALREADY! pre moviesAPI")
+    // async function getAlreadyWatchedMovies(){
+    //     console.log("ALREADY! pre moviesAPI")
        
-        let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
+    //     let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
       
-        props.setAlreadyWatchedMovies(alreadyWatchedTemp)
-        //    console.log('next watch movies ', nextWatchMovies)
+    //     props.setAlreadyWatchedMovies(alreadyWatchedTemp)
+    //     //    console.log('next watch movies ', nextWatchMovies)
   
-    }
-    // console.log(nextWatchMovies[20].title)
+    // }
+    // // console.log(nextWatchMovies[20].title)
 
     
 
-    useEffect(() => {
-        getAlreadyWatchedMovies()
+    // useEffect(() => {
+    //     getAlreadyWatchedMovies()
         
-      }, []);
+    //   }, []);
 
     // const [myMovies, setMyMovies] = useState([])
     // const [myNextWatch, setMyNextWatch] = useState([])
@@ -62,6 +63,7 @@ export default function MyMoviesPage(props) {
     // }, []);
 
     const handleSelectMyMovie = async e => {
+        console.log(e)
         const movieSelect = e
         props.setSelectedMovie(movieSelect)
         console.log("Test", e)
