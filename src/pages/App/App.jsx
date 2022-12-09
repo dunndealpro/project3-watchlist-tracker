@@ -123,7 +123,7 @@ export default function App() {
       {user
         ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} setAlreadyWatchedMovies={setAlreadyWatchedMovies} />
           <Routes>
             <Route path="/" element={<LandingPage user={user} />} />
             <Route path="/movies" element={<MyMoviesPage

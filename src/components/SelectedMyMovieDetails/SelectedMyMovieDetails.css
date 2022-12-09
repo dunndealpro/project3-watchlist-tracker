@@ -1,3 +1,53 @@
-.selected-poster{
-    width: 30vw;
+.selected-my-movie{
+    margin: 10px;
+    margin-top: 20px;
+    background-color: rgb(190,193,150);
+    border-radius: 10px;
+    border: solid black 1px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* grid-template-rows: 1fr 1fr; */
+}
+
+.selected-my-poster{
+    width:20vw;
+    margin: 10px;
+}
+
+.my-delete-button{
+    grid-column: span 2;
+    width: 40%;
+    justify-self: center;
+    margin: 10px;
+    background: none;
+    background-color: rgb(196,175,130);
+    border:solid black 1px;
+    border-radius: 3px;
+}
+
+.my-delete-button:hover{
+    background-color: rgb(99,139,138);
+    color: cornsilk;
+    border: solid cornsilk 1px;
+}
+
+#my-movie-details{
+    display: flex;
+    flex-direction: column;
+}
+
+#selected-my-title{
+    margin: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#my-released-date{
+    font-size: 16px;
+}
+
+#my-overview{
+    font-size: px;
+    text-align: left;
+    margin: 4px;
 }

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css'
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, setAlreadyWatchedMovies }) {
 
   function handleLogOut() {
     // Remove token using the user service
@@ -10,6 +10,7 @@ export default function NavBar({ user, setUser }) {
     // Update user state in App
     setUser(null);
     console.log("logout clicked")
+    setAlreadyWatchedMovies([])
   }
 
   return (
