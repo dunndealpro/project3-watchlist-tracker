@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import './AuthPage.css'
-// import { Routes, Route } from 'react-router-dom';
+
 
 export default function AuthPage({setUser}){
     const [showSignUp, setShowSignUp] = useState(false);
@@ -17,7 +17,7 @@ export default function AuthPage({setUser}){
               :
               <LoginForm setUser={setUser} />
           }
-
+<a href="https://www.themoviedb.org/" target="_blank">Powered by TMDB.com</a>
         </div>
       
     )

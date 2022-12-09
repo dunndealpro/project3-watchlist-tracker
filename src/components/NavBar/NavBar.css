@@ -1,23 +1,19 @@
 .navbar{
     display: flex;
-    /* flex-direction: flex-end; */
     justify-content: flex-start;
     align-items: center;
     background-color: rgb(130,168,157);
     height: 40px;
     padding: 0 10px 0 10px;
     width: 100vw;
-    /* margin: 10px; */
 }
 
 .navbar span{
         margin-right: auto;
         padding: 10px;
-        /* padding: 5px; */
 }
 
 .link{
-    /* color: red; */
     margin: 10px;
     border: 1px solid black;
     border-radius: 5px;
@@ -28,7 +24,6 @@
 }
 
 .link:hover{
-    /* color: red; */
     background-color: rgb(196,175,130);
     border: 1px solid cornsilk;
     border-radius: 5px;

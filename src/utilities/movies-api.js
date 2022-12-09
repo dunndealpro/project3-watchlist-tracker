@@ -25,7 +25,3 @@ export function getMyMovies(){
     return sendRequest(`${BASE_URL}/movies/`, 'GET',  )
 }
 
-// export function deleteFromMyMovies(movieId){
-//     console.log('delete movie please')
-//     return sendRequest(`${BASE_URL}/movies/`, 'DELETE', {id: movieId} )
-// }

@@ -2,14 +2,6 @@ import MovieListItem from "../MovieListItem/MovieListItem"
 import "./SearchResults.css"
 
 export default function SearchResults(props) {
-
-
-    // moviesTest()
-
-    // const posterUrl = `https://image.tmdb.org/t/p/original/${movies.results[0].poster_path}`
-
-    // console.log("Results: ", movies.results[0].title)
-    console.log("Search Results: ", props.movies)
     return (
         <div>
             Search Results

@@ -29,12 +29,10 @@ export default function App() {
   const API_KEY = "a72c1d466153d06b65f2879b369031d8"
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
 
-  const getMovies = async () => {
-    // console.log({movies})
+  const getMovies = async () => {    
     try {
       console.log("Search: ", search)
-      const response = await fetch(url).then(res => res.json());
-      // const data = await response.json()
+      const response = await fetch(url).then(res => res.json());      
       { setMovies(response) };
       console.log(response);
     } catch (error) {
@@ -45,11 +43,6 @@ export default function App() {
   }
 
   useEffect(() => {
-    // getMovies();
-    // console.log({ movies })
-    // console.log(movies)
-    // handleSelectMovie()
-    // getNonSeenMovies()
     getAlreadyWatchedMovies()
   }, []);
 
@@ -67,18 +60,11 @@ export default function App() {
 
   async function displaySelected() {
     console.log("Showing clicked movie: x2 ", selectedUrl)
-    // try {
     console.log("Showing clicked movie: x2 ", selectedMovie)
     const response = await fetch(selectedUrl).then(res => res.json());
-    // const data = await response.json();
     { setSelectedDisplay(response); }
     console.log(response)
     console.log(selectedDisplay)
-    // window.location.reload()
-    // }catch(error){
-    // console.error(error);
-    // console.log("Error!!>!>!")
-    // }     
   }
 
   async function handleAddToMyMovies(movieId, movieTitle) {
@@ -91,30 +77,21 @@ export default function App() {
     setSelectedMovie(selectedMovie)
     setSelectedDisplay(selectedDisplay)
     setSearch(search)
-    // setAlreadyWatchedMovies({})
   }
 
-  async function handleDeleteFromMyMovies(movieId){
+  async function handleDeleteFromMyMovies(movieId) {
     console.log("delete from my movies model ", movieId)
-    // const movie = await moviesAPI.deleteFromMyMovies(movieId)
     const movie = await usersAPI.deleteFromMyMovies(movieId)
-
     console.log(movie)
     getAlreadyWatchedMovies()
     setSelectedDisplay(null)
-    
-    
-}
+  }
 
 
   async function getAlreadyWatchedMovies() {
     console.log("ALREADY! pre moviesAPI", alreadyWatchedMovies)
-
     let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
-
     setAlreadyWatchedMovies(alreadyWatchedTemp)
-
-    //    console.log('next watch movies ', nextWatchMovies)  
   }
 
   return (
@@ -162,7 +139,7 @@ export default function App() {
         :
         <AuthPage setUser={setUser} />
       }
-
+      <a id="footer" href="https://www.themoviedb.org/" target="_blank">Powered by TMDB.com</a>
     </main>
   );
 }

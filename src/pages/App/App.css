@@ -5,8 +5,11 @@
   width: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-items: center;  
+}
+
+#footer{
+  margin: 0 0 10px 0;
 }
 
 /* .App-logo {

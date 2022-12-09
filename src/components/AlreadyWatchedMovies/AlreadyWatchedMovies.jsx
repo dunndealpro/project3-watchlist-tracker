@@ -11,9 +11,8 @@ export default function AlreadyWatchedMovies(props) {
         <div>
             Select a movie from your collection
             <div className="my-movies-container">
-                <ul className = "my-movies">
+                <ul className="my-movies">
                     {props.alreadyWatchedMovies.map((movies) => (
-
                         <MyMovieListItem
                             key={movies.title}
                             movie={movies}

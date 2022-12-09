@@ -47,13 +47,9 @@ export default class SignUpForm extends Component {
       <div >
         <div >
           <form className="form-container" autoComplete="off" onSubmit={this.handleSubmit}>
-            
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required placeholder="enter name"/>
-            
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required placeholder="enter email"/>
-            
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required placeholder="enter password"/>
-            
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required placeholder="confirm password" />
             <button class="btn-signup" type="submit" disabled={disable}>SIGN UP</button>
           </form>
@@ -61,31 +57,5 @@ export default class SignUpForm extends Component {
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
     );
-
-    // return(
-    //   <Card>
-    //     <Card.body>
-    //     <form autoComplete="off" onSubmit={this.handleSubmit}>
-    //       <FloatingLabel
-    //         label="Name"
-    //         className="mb-3"
-    //         >
-    //           <Form.Control
-    //           placeholder="123"
-    //           type="text"
-    //           name="name"
-    //           value={this.state.name}
-    //           onChange={this.handleChange}
-    //           required
-    //           />
-    //         </FloatingLabel>{" "}
-
-
-    //     </form>
-
-    //     </Card.body>
-    //   </Card>
-    // )
-
   }
 }
