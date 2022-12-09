@@ -1,5 +1,9 @@
 
 .search-movies-main{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
+}
+
+.search-input{
+    margin: 0 5px 0 0;
 }

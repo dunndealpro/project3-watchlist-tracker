@@ -1,18 +1,26 @@
-.search-results-poster{
+.my-movies-poster{
     font-size: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid black 2px;
-    margin:2px;
+    border: solid black 1px;
+    border-radius: 5px;
+    margin: 2px;
     width: 10vw;
-
+    /* height: 50%; */
+    background-color: rgb(190, 193, 150);
 }
 
-.search-results-poster img{
+#link-my-movies{
+    margin: 10px;
+    padding: 10px;
+}
+
+
+/* .my-movies-poster img{
    
-    width: 10vw;
+    width: 7vw; */
     /* padding: 5px; */
     
-}
+/* } */

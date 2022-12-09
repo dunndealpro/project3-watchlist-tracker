@@ -1,4 +1,4 @@
-.search-results{
+.my-movies{
     height: 400px;
     overflow:hidden;
      overflow-y:scroll;
@@ -11,7 +11,7 @@
     
 }
 
-.search-container{
+.my-movies-container{
     background-color: rgb(196,175,130);
     border-radius: 10px;
     border: solid black 1px;

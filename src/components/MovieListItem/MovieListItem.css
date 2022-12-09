@@ -1,18 +1,23 @@
-.search-results-poster{
-    font-size: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid black 2px;
-    margin:2px;
-    width: 10vw;
-
+.search-results-poster {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  border-radius: 5px;
+  margin: 2px;
+  width: 10vw;
+  background-color: rgb(190, 193, 150);
 }
 
-.search-results-poster img{
-   
-    width: 10vw;
-    /* padding: 5px; */
-    
+.select-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.search-results-poster img {
+  width: 7vw;
+  /* padding: 5px; */
 }

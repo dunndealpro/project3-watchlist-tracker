@@ -23,27 +23,9 @@ export default function MovieListItem(props) {
         // console.log(posterUrl)
     } else { movieTitle = "False" }
 
-   
-    // async function getPosterUrl() {
-    //     let selectedUrl = `https://api.themoviedb.org/3/movie/${props.movie.id}?api_key=${API_KEY}&language=en-US`
-    //     let posterUrlTemp = await fetch(selectedUrl).then(res => res.json())
-    //     // setPosterUrl(posterUrlTemp)
-    //     // console.log("PosterUrl: ", posterUrl.poster_path)
-    //     evan = `https://image.tmdb.org/t/p/original/${posterUrl.poster_path}`
-        
-    //     // console.log("PosterUrl Evan: ", posterUrl)
-    //     return(posterUrl)
-    // }
-    // useEffect(() => {    
-    //    getPosterUrl();
-    //  }, []);
-
-    // console.log("PosterUrl Evan: ", evan)
-
-
     return (
-        <div className="search-results-poster">
-            <Link to="/movies"
+        <div className="my-movies-poster">
+            <Link id="link-my-movies" to="/movies"
                 onClick={() => props.handleSelectMyMovie(props.movie.id)}> {props.movie.title}
                 <br />
 

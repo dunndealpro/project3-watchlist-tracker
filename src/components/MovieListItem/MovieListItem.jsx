@@ -23,7 +23,7 @@ export default function MovieListItem(props) {
 
     return (
         <div className="search-results-poster">
-            <button
+            <button className="select-button"
             onClick={() => props.handleSelectMovie(props.movie.id)}> 
             {props.movie.title}
             <br />              
