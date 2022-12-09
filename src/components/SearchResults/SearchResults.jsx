@@ -1,7 +1,7 @@
 import MovieListItem from "../MovieListItem/MovieListItem"
 
 
-export default function SearchResults({ movies, handleSelectMovie }) {
+export default function SearchResults(props) {
 
 
     // moviesTest()
@@ -13,14 +13,14 @@ export default function SearchResults({ movies, handleSelectMovie }) {
     return (
         <div>
             Search Results
-            <div>            {movies.results ?                
+            {/* <div>            {props.movies.results ?                
                 <div> 
                     <ul>
-                        {movies.results.map((movie) => ( 
+                        {props.movies.results.map((movie) => ( 
                             <MovieListItem 
                             key={movie.id} 
                             movie={movie} 
-                            handleSelectMovie={handleSelectMovie}
+                            handleSelectMovie={props.handleSelectMovie}
                             />
                         ))}
                     </ul>
@@ -28,7 +28,7 @@ export default function SearchResults({ movies, handleSelectMovie }) {
                 :
                 <p> Please Enter a movie in the search box</p>
             }
-            </div>
+            </div> */}
             
         </div>
     )

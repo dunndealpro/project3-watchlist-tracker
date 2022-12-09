@@ -18,7 +18,7 @@ import './App.css';
 export default function App() {
 
   const [user, setUser] = useState(getUser())
-  const [movies, setMovies] = useState({});
+  const [movies, setMovies] = useState();
   const [search, setSearch] = useState('Mean Girls');
   const [selectedMovie, setSelectedMovie] = useState({})
   const [selectedDisplay, setSelectedDisplay] = useState({})
@@ -66,7 +66,7 @@ export default function App() {
             <Route path="/actors" element={<MyActorsPage />} />
             <Route path="/watch" element={<MyWatchPage />} />
             <Route path="/search/movies" element={<SearchMoviesPage
-              movie={movies}
+              movies={movies}
               setMovies={setMovies}
               search={search}
               setSearch={setSearch}
