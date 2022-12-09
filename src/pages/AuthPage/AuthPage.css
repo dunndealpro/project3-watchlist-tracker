@@ -1,3 +1,15 @@
+.colorsdummy{
+    color: rgb(166,198,183);
+    color: rgb(128,168,157);
+    color: rgb(99,139,138);
+    color: rgb(41,90,95);
+    color: rgb(39,70,73);
+    color: rgb(190,193,150);
+    color: rgb(196,175,130);
+    color: rgb(145,130,101);
+}
+
+
 .auth-page{
     display: flex;
     flex-direction: column;
@@ -34,8 +46,8 @@ height: 100vh;
 
 .btn-sign-log:hover{
     background-color: rgb(41,90,95);
-    color: white;
-    border: solid white 1px;
+    color: cornsilk;
+    border: solid cornsilk 1px;
 }
 
 

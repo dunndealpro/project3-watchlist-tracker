@@ -14,19 +14,15 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className='navbar'>
-      <Link to="/movies">MyMovies</Link>
-      &nbsp; | &nbsp;
-      <Link to="/shows">MyShows</Link>
-      &nbsp; | &nbsp;
-      <Link to="/actors">MyActors</Link>
-      &nbsp; | &nbsp;
-      <Link to="/watch">MyWatch</Link>
-      &nbsp; | &nbsp;
-      <Link to="/">MyHome</Link>
-      &nbsp; | &nbsp;
       <span>Welcome, {user.name} </span>
+      <Link className="link" to="/movies">MyMovies</Link>
       &nbsp;&nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+      <Link className="link"  to="/search/movies">Search Movies</Link>
+      &nbsp;&nbsp;    
+      <Link className="link"  to="/">MyHome</Link>
+      &nbsp;&nbsp;
+      
+      <Link className="link"  to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
 }

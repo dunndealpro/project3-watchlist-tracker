@@ -40,8 +40,8 @@ text-align: center;
 
 .btn-login:hover{
     background-color: rgb(41,90,95);
-    color: white;
-    border: 1px solid white;
+    color: cornsilk;
+    border: 1px solid cornsilk;
     border-radius: 5px ;
 }
 
@@ -54,8 +54,8 @@ text-align: center;
 
 .btn-signup:hover{
     background-color: rgb(41,90,95);
-    color: white;
-    border: 1px solid white;
+    color: cornsilk;
+    border: 1px solid cornsilk;
     border-radius: 5px b;
 
 }
