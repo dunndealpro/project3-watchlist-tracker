@@ -94,12 +94,26 @@ export default function App() {
     // setAlreadyWatchedMovies({})
   }
 
+  async function handleDeleteFromMyMovies(movieId){
+    console.log("delete from my movies model ", movieId)
+    // const movie = await moviesAPI.deleteFromMyMovies(movieId)
+    const movie = await usersAPI.deleteFromMyMovies(movieId)
+
+    console.log(movie)
+    getAlreadyWatchedMovies()
+    setSelectedDisplay(null)
+    
+    
+}
+
+
   async function getAlreadyWatchedMovies() {
     console.log("ALREADY! pre moviesAPI", alreadyWatchedMovies)
 
     let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
 
     setAlreadyWatchedMovies(alreadyWatchedTemp)
+
     //    console.log('next watch movies ', nextWatchMovies)  
   }
 
@@ -121,6 +135,7 @@ export default function App() {
               setSelectedDisplay={setSelectedDisplay}
               setAlreadyWatchedMovies={setAlreadyWatchedMovies}
               alreadyWatchedMovies={alreadyWatchedMovies}
+              handleDeleteFromMyMovies={handleDeleteFromMyMovies}
             />} />
             <Route path="/shows" element={<MyShowsPage />} />
             <Route path="/actors" element={<MyActorsPage />} />

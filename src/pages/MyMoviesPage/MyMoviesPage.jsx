@@ -19,9 +19,7 @@ export default function MyMoviesPage(props) {
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
     const selectedUrl = `https://api.themoviedb.org/3/movie/${props.selectedMovie}?api_key=${API_KEY}&language=en-US`
     
-    
-
-    console.log('hey there')
+     console.log('hey there')
     // props.setSelectedDisplay(null)
 
     // async function getAlreadyWatchedMovies(){
@@ -83,14 +81,14 @@ export default function MyMoviesPage(props) {
     }
 
 
-    async function handleDeleteFromMyMovies(movieId){
-        console.log("delete from my movies model ", movieId)
-        // const movie = await moviesAPI.deleteFromMyMovies(movieId)
-        const movie = await usersAPI.deleteFromMyMovies(movieId)
+    // async function handleDeleteFromMyMovies(movieId){
+    //     console.log("delete from my movies model ", movieId)
+    //     // const movie = await moviesAPI.deleteFromMyMovies(movieId)
+    //     const movie = await usersAPI.deleteFromMyMovies(movieId)
 
-        console.log(movie)
+    //     console.log(movie)
         
-    }
+    // }
 
     return (
         <div>
@@ -104,7 +102,7 @@ export default function MyMoviesPage(props) {
                 
                 {props.selectedDisplay ?  <SelectedMyMovieDetails 
                 selectedDisplay={props.selectedDisplay} 
-                handleDeleteFromMyMovies={handleDeleteFromMyMovies}
+                handleDeleteFromMyMovies={props.handleDeleteFromMyMovies}
                  />  :
                  <p></p>
 
