@@ -49,9 +49,9 @@ export default function LandingPage({ user }) {
             <h1>Welcome to MyWatch!</h1>
             <h4>(witty comment goes here)</h4>
             
-           <Link to="/search/movies">Search Movies</Link>&nbsp; | &nbsp;
-           <Link to="/search/shows">Search Shows</Link>&nbsp; | &nbsp;
-           <Link to="/search/actors">Search Actors</Link>
+           <Link className="landing-link" to="/search/movies">Search Movies</Link>&nbsp; | &nbsp;
+           
+           <Link className="landing-link" to="/movies">MyMovies</Link>
 
             {/* <LocationTitle /> */}
             {/* <SearchMovies/> */}

@@ -2,6 +2,30 @@
     justify-content: center;
     background-color:rgb(196,175,130);
     border: 2px solid black;
-    margin: 2%;
+    width: 50vw;
+    margin: 5%;
     border-radius: 10px;
+}
+
+.landing-link{
+    /* color: red; */
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    color: black;
+    text-decoration: none;
+    background-color: rgb(166,198,183);
+    
+}
+
+.landing-link:hover{
+    /* color: red; */
+    
+    background-color: rgb(99,139,138);
+    border: 1px solid cornsilk;
+    border-radius: 5px;
+    padding: 3px;
+    color: cornsilk;
+    text-decoration: underline;
 }

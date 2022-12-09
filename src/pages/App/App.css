@@ -1,7 +1,11 @@
 .App {
   text-align: center;
   background-color: rgb(166,198,183);
-  height: 100vh;
+  /* height: 100vh; */
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
 }
 
