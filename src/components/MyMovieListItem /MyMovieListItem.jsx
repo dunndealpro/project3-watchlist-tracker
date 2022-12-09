@@ -16,7 +16,7 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
     
     if (movie) {        
         movieTitle = movie.title
-        console.log("If   ", movie._id)
+        // console.log("If   ", movie._id)
         // getPosterUrl()
         // posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
     } else {
@@ -28,17 +28,17 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
         let selectedUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}&language=en-US`
         let posterUrlTemp = await fetch(selectedUrl).then(res => res.json())
         setPosterUrl(posterUrlTemp)
-        console.log("PosterUrl: ", posterUrl.poster_path)
+        // console.log("PosterUrl: ", posterUrl.poster_path)
         evan = `https://image.tmdb.org/t/p/original/${posterUrl.poster_path}`
         
-        console.log("PosterUrl Evan: ", posterUrl)
+        // console.log("PosterUrl Evan: ", posterUrl)
         return(posterUrl)
     }
     // useEffect(() => {    
     //    getPosterUrl();
     //  }, []);
 
-    console.log("PosterUrl Evan: ", evan)
+    // console.log("PosterUrl Evan: ", evan)
 
 
     return (

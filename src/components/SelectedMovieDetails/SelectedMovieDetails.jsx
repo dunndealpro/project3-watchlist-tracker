@@ -2,11 +2,11 @@ import './SelectedMovieDetails.css'
 import { useState } from 'react'
 
 
-export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMovies, }) {
+export default function SelectedMovieDetails(props) {
 
     // const [check, setCheck]= useState(false)
 
-    let selectedPosterUrl = `https://image.tmdb.org/t/p/original/${selectedDisplay.poster_path}`
+    let selectedPosterUrl = `https://image.tmdb.org/t/p/original/${props.selectedDisplay.poster_path}`
 
     // console.log("checkbox testing")
 //    function handleCheck(){
@@ -23,13 +23,13 @@ export default function SelectedMovieDetails({ selectedDisplay, handleAddToMyMov
              
             {/* <input name="seenCheck" type="checkbox" onChange={handleCheck}/> */}
             <br />
-            <button onClick={() => handleAddToMyMovies(selectedDisplay.id, selectedDisplay.title)} type="submit">Add to MyMovies</button>
+            <button onClick={() => props.handleAddToMyMovies(props.selectedDisplay.id, props.selectedDisplay.title)} type="submit">Add to MyMovies</button>
             <br />
-            {selectedDisplay.title}
+            {props.selectedDisplay.title}
             <br />
-            Released: {selectedDisplay.release_date}
+            Released: {props.selectedDisplay.release_date}
             <br />
-            {selectedDisplay.overview}
+            {props.selectedDisplay.overview}
             <br />
             <img className="selected-poster" src={selectedPosterUrl} alt="" />
         </div>

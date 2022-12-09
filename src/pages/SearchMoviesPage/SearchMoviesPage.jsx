@@ -52,41 +52,41 @@ export default function SearchMoviesPage(props) {
 
     let selectedUrl
 
-    function handleSelectMovie(e) {
-        const movieSelect = e
-        console.log("Test")
-        console.log("Logging click event", e)
-        { props.setSelectedMovie(movieSelect) }
-        console.log("Showing clicked movie: ", props.selectedMovie)
-        selectedUrl = `https://api.themoviedb.org/3/movie/${props.selectedMovie}?api_key=${API_KEY}&language=en-US`
-        displaySelected()
-    }
+    // function handleSelectMovie(e) {
+    //     const movieSelect = e
+    //     console.log("Test")
+    //     console.log("Logging click event", e)
+    //     { props.setSelectedMovie(movieSelect) }
+    //     console.log("Showing clicked movie: ", props.selectedMovie)
+    //     selectedUrl = `https://api.themoviedb.org/3/movie/${props.selectedMovie}?api_key=${API_KEY}&language=en-US`
+    //     displaySelected()
+    // }
 
-    async function displaySelected() {
-        console.log("Showing clicked movie: x2 ", selectedUrl)
-        // try {
-        console.log("Showing clicked movie: x2 ", props.selectedMovie)
-        const response = await fetch(selectedUrl).then(res => res.json());
-        // const data = await response.json();
-        { props.setSelectedDisplay(response); }
-        console.log(response)
-        console.log(props.selectedDisplay)
-        // window.location.reload()
-        // }catch(error){
-        // console.error(error);
-        // console.log("Error!!>!>!")
-        // }     
-    }
+    // async function displaySelected() {
+    //     console.log("Showing clicked movie: x2 ", selectedUrl)
+    //     // try {
+    //     console.log("Showing clicked movie: x2 ", props.selectedMovie)
+    //     const response = await fetch(selectedUrl).then(res => res.json());
+    //     // const data = await response.json();
+    //     { props.setSelectedDisplay(response); }
+    //     console.log(response)
+    //     console.log(props.selectedDisplay)
+    //     // window.location.reload()
+    //     // }catch(error){
+    //     // console.error(error);
+    //     // console.log("Error!!>!>!")
+    //     // }     
+    // }
 
-    async function handleAddToMyMovies(movieId, movieTitle, check) {
-        console.log("Add to my movies ", movieId, movieTitle, check)
-        const movie = await moviesAPI.addMovieToMyMovies(movieId, movieTitle, check)
-        const myMovie = await usersAPI.addToMyMovies(movieId)
-        console.log(movie)
-        console.log("User Model My Movies?", myMovie)
-        { props.setSelectedMovie({}) }
-        { props.setSelectedDisplay(null) }
-    }
+    // async function handleAddToMyMovies(movieId, movieTitle) {
+    //     console.log("Add to my movies ", movieId, movieTitle)
+    //     const movie = await moviesAPI.addMovieToMyMovies(movieId, movieTitle)
+    //     const myMovie = await usersAPI.addToMyMovies(movieId)
+    //     console.log(movie)
+    //     console.log("User Model My Movies?", myMovie)
+    //     { props.setSelectedMovie({}) }
+    //     { props.setSelectedDisplay(null) }
+    // }
 
     // async function getNonSeenMovies(){
     //     console.log("non seen testing pre moviesAPI")
@@ -107,10 +107,11 @@ export default function SearchMoviesPage(props) {
                     handleSelectMovie={props.handleSelectMovie} />
                 {props.selectedDisplay ? <SelectedMovieDetails
                     selectedDisplay={props.selectedDisplay}
-                    handleAddToMyMovies={handleAddToMyMovies} />
+                    handleAddToMyMovies={props.handleAddToMyMovies} />
                     :
                     <p></p>}
-                <AlreadyWatchedMovies />
+                <AlreadyWatchedMovies
+                alreadyWatchedMovies={props.alreadyWatchedMovies} />
             </div>
         </div>
     )

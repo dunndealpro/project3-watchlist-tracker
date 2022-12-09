@@ -13,7 +13,7 @@ export default function SearchResults(props) {
     return (
         <div>
             Search Results
-            {/* <div>            {props.movies.results ?                
+            <div>            {props.movies.results ?                
                 <div> 
                     <ul>
                         {props.movies.results.map((movie) => ( 
@@ -28,7 +28,7 @@ export default function SearchResults(props) {
                 :
                 <p> Please Enter a movie in the search box</p>
             }
-            </div> */}
+            </div>
             
         </div>
     )

@@ -1,30 +1,31 @@
 import { Link } from "react-router-dom"
 import "./MovieListItem.css"
 
-export default function MovieListItem({ movie, handleSelectMovie }) {
+export default function MovieListItem(props) {
     // console.log("huh? ")
 
     let movieTitle
-    let posterUrl =`https://image.tmdb.org/t/p/original/${movie.poster_path}`
+    let posterUrl =`https://image.tmdb.org/t/p/original/${props.movie.poster_path}`
 
     // const clickTest = e => {
 
     //     // console.log("Test ", movie.id)
     // }
 
-    if (movie) {
+    if (props.movie) {
         // console.log(movie)
-        movieTitle = movie.title
+        movieTitle = props.movie.title 
         // console.log(movie.poster_path)
 
-        posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+        posterUrl = `https://image.tmdb.org/t/p/original/${props.movie.poster_path}`
         // console.log(posterUrl)
     } else { movieTitle = "False" }
 
     return (
         <div className="search-results-poster">
             <button
-            onClick={() => handleSelectMovie(movie.id)}> {movie.title}
+            onClick={() => props.handleSelectMovie(props.movie.id)}> 
+            {props.movie.title}
             <br />              
           
             <img src={posterUrl} alt="" />
@@ -34,3 +35,37 @@ export default function MovieListItem({ movie, handleSelectMovie }) {
         </div>
     )
 }
+
+// export default function MovieListItem({ handleSelectMovie, movie }) {
+//     // console.log("huh? ")
+
+//     let movieTitle
+//     let posterUrl =`https://image.tmdb.org/t/p/original/${movie.poster_path}`
+
+//     // const clickTest = e => {
+
+//     //     // console.log("Test ", movie.id)
+//     // }
+
+//     if (movie) {
+//         // console.log(movie)
+//         movieTitle = movie.title 
+//         // console.log(movie.poster_path)
+
+//         posterUrl = `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+//         // console.log(posterUrl)
+//     } else { movieTitle = "False" }
+
+//     return (
+//         <div className="search-results-poster">
+//             <button
+//             onClick={() => handleSelectMovie(movie.id)}> {movie.title}
+//             <br />              
+          
+//             <img src={posterUrl} alt="" />
+            
+           
+//                 </button>
+//         </div>
+//     )
+// }

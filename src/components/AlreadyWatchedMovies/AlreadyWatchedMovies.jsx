@@ -3,29 +3,29 @@ import MovieListItem from "../MovieListItem/MovieListItem"
 import MyMovieListItem from "../MyMovieListItem /MyMovieListItem"
 import { useState, useEffect } from "react"
 
-export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextWatchMovies =  getNonSeenMovies()
+export default function AlreadyWatchedMovies(props) { // let nextWatchMovies =  getNonSeenMovies()
     // console.log("My watch list: ", nonSeenMovies)
 
     // const [nextWatchMovies, setNextWatchMovies] = useState([])
-    const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
+    // const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
 
     console.log('hey there already needs to be renamed to my movies')
 
-    async function getAlreadyWatchedMovies(){
-        console.log("ALREADY! pre moviesAPI", alreadyWatchedMovies)
+    // async function getAlreadyWatchedMovies(){
+    //     console.log("ALREADY! pre moviesAPI", props.alreadyWatchedMovies)
        
-        let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
+    //     let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
       
-        setAlreadyWatchedMovies(alreadyWatchedTemp)
-        //    console.log('next watch movies ', nextWatchMovies)  
-    }
+    //     props.setAlreadyWatchedMovies(alreadyWatchedTemp)
+    //     //    console.log('next watch movies ', nextWatchMovies)  
+    // }
 
 
     
 
-    useEffect(() => {
-        getAlreadyWatchedMovies()
-      }, []);
+    // useEffect(() => {
+    //     getAlreadyWatchedMovies()
+    //   }, []);
     
     // getnextWatchMovies()
     
@@ -38,12 +38,12 @@ export default function AlreadyWatchedMovies({handleSelectMovie}) { // let nextW
 
             <div> 
                     <ul>
-                        {alreadyWatchedMovies.map((movies) => ( 
+                        {props.alreadyWatchedMovies.map((movies) => ( 
                             
                             <MyMovieListItem 
                             key={movies.title} 
                             movie={movies} 
-                            handleSelectMovie={handleSelectMovie}
+                            handleSelectMyMovie={props.handleSelectMyMovie}
                             />
                         ))}
                     </ul>

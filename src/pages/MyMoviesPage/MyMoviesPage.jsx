@@ -10,14 +10,14 @@ import * as moviesAPI from "../../utilities/movies-api"
 import * as usersAPI from "../../utilities/users-api"
 
 
-export default function MyMoviesPage() {
+export default function MyMoviesPage(props) {
 
-    const [selectedMovie, setSelectedMovie] = useState()
-    const [selectedDisplay, setSelectedDisplay] = useState()
-    const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
+    // const [selectedMovie, setSelectedMovie] = useState()
+    // const [selectedDisplay, setSelectedDisplay] = useState()
+    // const [alreadyWatchedMovies, setAlreadyWatchedMovies] = useState([])
     
     const API_KEY = "a72c1d466153d06b65f2879b369031d8"
-    const selectedUrl = `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${API_KEY}&language=en-US`
+    const selectedUrl = `https://api.themoviedb.org/3/movie/${props.selectedMovie}?api_key=${API_KEY}&language=en-US`
     
     
 
@@ -28,7 +28,7 @@ export default function MyMoviesPage() {
        
         let alreadyWatchedTemp = await moviesAPI.getAlreadyWatchedMovies()
       
-        setAlreadyWatchedMovies(alreadyWatchedTemp)
+        props.setAlreadyWatchedMovies(alreadyWatchedTemp)
         //    console.log('next watch movies ', nextWatchMovies)
   
     }
@@ -61,19 +61,19 @@ export default function MyMoviesPage() {
     //     getMyMovies()
     // }, []);
 
-    const handleSelectMovie = async e => {
+    const handleSelectMyMovie = async e => {
         const movieSelect = e
-        setSelectedMovie(movieSelect)
+        props.setSelectedMovie(movieSelect)
         console.log("Test", e)
         console.log("Logging click event", e)
-        console.log("Showing clicked movie: ", selectedMovie)
+        console.log("Showing clicked movie: ", props.selectedMovie)
 
         try {
             const response = await fetch(selectedUrl);
             const data = await response.json();
-            setSelectedDisplay(data);
+            props.setSelectedDisplay(data);
             console.log(data)
-            console.log(selectedDisplay)
+            console.log(props.selectedDisplay)
         }catch(error){
             console.log("Error!!>!>!")
             console.error(error);
@@ -97,11 +97,11 @@ export default function MyMoviesPage() {
                 {/* <NextWatchMovies /> */}
                 {/* <SelectedMovieDetails selectedDisplay={selectedDisplay} handleAddToMyMovies={handleAddToMyMovies}/> */}
                 <AlreadyWatchedMovies 
-                handleSelectMovie={handleSelectMovie}
-                alreadyWatchedMovies={alreadyWatchedMovies}/>
+                handleSelectMyMovie={handleSelectMyMovie}
+                alreadyWatchedMovies={props.alreadyWatchedMovies}/>
                 
-                {selectedDisplay ?  <SelectedMyMovieDetails 
-                selectedDisplay={selectedDisplay} 
+                {props.selectedDisplay ?  <SelectedMyMovieDetails 
+                selectedDisplay={props.selectedDisplay} 
                 handleDeleteFromMyMovies={handleDeleteFromMyMovies}
                  />  :
                  <p></p>
