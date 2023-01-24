@@ -31,13 +31,13 @@ async function getAlreadyWatchedMovies(req, res){
     res.json(alreadyWatchedMovies)
 }
 
-// async function getNextWatchMovies(req, res){
-//     console.log("Next Watch testing")
-//     const nextWatchMovies = await Movie.find({haveSeen: true})
-//     // console.log(nextWatchMovies)
-//     console.log("next watch movies", nextWatchMovies) 
-//     res.json(nextWatchMovies)
-// }
+async function getNextWatchMovies(req, res){
+    console.log("Next Watch testing")
+    const nextWatchMovies = await Movie.find({haveSeen: true})
+    // console.log(nextWatchMovies)
+    console.log("next watch movies", nextWatchMovies) 
+    res.json(nextWatchMovies)
+}
 
 async function deleteFromMyMovies(req, res){
     console.log("terminal comment Delete", req.body.id)
